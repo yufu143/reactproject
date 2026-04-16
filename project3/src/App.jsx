@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../.env'
 import './App.css'
 
 function App() {
