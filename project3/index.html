@@ -40,23 +40,56 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h3 class="card-title" id="firstShow">Card title</h3>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <h3 class="card-title" id="firstShow"></h3>
+                        <p class="card-text" id="firstShowInfo"></p>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
-            <h2 id="secondShow"></h2>
-
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title" id="secondShow"></h3>
+                        <p class="card-text" id="secondShowInfo"></p>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title" id="thirdShow"></h3>
+                        <p class="card-text" id="thirdShowInfo"></p>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title" id="fourthShow"></h3>
+                        <p class="card-text" id="fourthShowInfo"></p>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
+        
 
     </main>
 
@@ -104,6 +137,7 @@
             // const firstMovie = document.getElementById("firstMovie");
             // firstMovie.innerText = firstTitle;
             updateMovie1(result);
+            updateMovie2(result);
         } catch (error) {
             console.error(error);
         };
@@ -113,6 +147,13 @@
             console.log(firstTitle);
             const firstShow = document.getElementById("firstShow");
             firstShow.innerText = firstTitle;
+        }
+
+        function updateMovie2(result) {
+            let secondTitle = result.results[1].name;
+            console.log(secondTitle);
+            const secondShow = document.getElementById("secondShow");
+            firstShow.innerText = secondTitle;
         }
 
     </script>
