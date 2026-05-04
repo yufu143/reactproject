@@ -3,16 +3,17 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 03 Webpage</title>
+    <title>Project 02 Webpage</title>
     <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
     <script src="../bootstrap-modules/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="bg-dark">
-    <!-- <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script> -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
     <header>
         <nav class="navbar navbar-expand-lg bg-primary-subtle">
             <div class="container">
@@ -33,22 +34,33 @@
 
     <main>
         <h1 class="text-light text-center p-3">TV SHOW REWIND <i class="bi bi-tv"></i></h1>
+        <h2 class="text-light bg-secondary">TRENDING SHOWS</h2>
         <section id="carouselExample" class="carousel slide bg-success-subtle" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <h2 id="firstShowTitle"></h2>
+                    <h3 id="firstShowTitle"></h3>
                     <img class="d-block w-90" src="" alt="First slide" id="firstShowPoster">
                     <p id="firstShowInfo"></p>
                 </div>
                 <div class="carousel-item">
-                    <h2 id="secondShowTitle"></h2>
+                    <h3 id="secondShowTitle"></h3>
                     <img class="d-block w-90" src="" alt="Second slide" id="secondShowPoster">
                     <p id="secondShowInfo"></p>
                 </div>
                 <div class="carousel-item">
-                    <h2 id="thirdShowTitle"></h2>
+                    <h3 id="thirdShowTitle"></h3>
                     <img class="d-block w-90" src="" alt="Third slide" id="thirdShowPoster">
                     <p id="thirdShowInfo"></p>
+                </div>
+                <div class="carousel-item">
+                    <h3 id="fourthShowTitle"></h3>
+                    <img class="d-block w-90" src="" alt="Fourth slide" id="fourthShowPoster">
+                    <p id="fourthShowInfo"></p>
+                </div>
+                <div class="carousel-item">
+                    <h3 id="fifthShowTitle"></h3>
+                    <img class="d-block w-90" src="" alt="Fifth slide" id="fifthShowPoster">
+                    <p id="fifthShowInfo"></p>
                 </div>
 
 
@@ -71,12 +83,11 @@
 
 
     <script type="module">
-        const TMDB_API_KEY="Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWU2ZWI3NWM5NmUyZjU0ZGU2ZDE4YTFhZmExMjhiNSIsIm5iZiI6MTc3NTMxNzMyMC4yNDg5OTk4LCJzdWIiOiI2OWQxMzE0OGNiZDFmMTkyNDMwYjg2OTEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vxuFpHNCOBmm5-7lHw3xOsWJw7GumTIcIDEWnl9RUws"
 
         const imageURL = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
         const myHeaders = new Headers();
-        myHeaders.append("Authorization", TMDB_API_KEY);
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWU2ZWI3NWM5NmUyZjU0ZGU2ZDE4YTFhZmExMjhiNSIsIm5iZiI6MTc3NTMxNzMyMC4yNDg5OTk4LCJzdWIiOiI2OWQxMzE0OGNiZDFmMTkyNDMwYjg2OTEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.vxuFpHNCOBmm5-7lHw3xOsWJw7GumTIcIDEWnl9RUws");
 
         const requestOptions = {
             method: "GET",
@@ -90,7 +101,9 @@
             console.log(result);
             updateTVShow1(result);
             updateTVShow2(result);
-            updateTVShow3(result);            
+            updateTVShow3(result);
+            updateTVShow4(result);
+            updateTVShow5(result);                        
         } catch (error) {
             console.error(error);
         };
@@ -143,9 +156,42 @@
             let thirdOverview = result.results[2].overview;
             console.log(thirdOverview);
             const thirdShowInfo = document.getElementById("thirdShowInfo");
-            thirdShowInfo.innerText = thirdOverview
+            thirdShowInfo.innerText = thirdOverview;
         }
 
+        function updateTVShow4(result) {
+            let fourthTitle = result.results[3].name;
+            console.log(fourthTitle);
+            const fourthShowTitle = document.getElementById("fourthShowTitle");
+            fourthShowTitle.innerText = fourthTitle;
+
+            let fourthPoster = result.results[3].poster_path;
+            console.log(fourthPoster);
+            const fourthShowPoster = document.getElementById("fourthShowPoster");
+            fourthShowPoster.src = imageURL + fourthPoster;
+
+            let fourthOverview = result.results[3].overview;
+            console.log(fourthOverview);
+            const fourthShowInfo = document.getElementById("fourthShowInfo");
+            fourthShowInfo.innerText = fourthOverview;
+        }
+
+        function updateTVShow5(result) {
+            let fifthTitle = result.results[4].name;
+            console.log(fifthTitle);
+            const fifthShowTitle = document.getElementById("fifthShowTitle");
+            fifthShowTitle.innerText = fifthTitle;
+
+            let fifthPoster = result.results[4].poster_path;
+            console.log(fifthPoster);
+            const fifthShowPoster = document.getElementById("fifthShowPoster");
+            fifthShowPoster.src = imageURL + fifthPoster;
+
+            let fifthOverview = result.results[4].overview;
+            console.log(fifthOverview);
+            const fifthShowInfo = document.getElementById("fifthShowInfo");
+            fifthShowInfo.innerText = fifthOverview;
+        }
     </script>
 
 </body>
