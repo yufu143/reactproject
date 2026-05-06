@@ -108,7 +108,8 @@
             updateTVShow2(result);
             updateTVShow3(result);
             updateTVShow4(result);
-            updateTVShow5(result);                        
+            updateTVShow5(result);
+            updateTVShow6(result);                                                            
         } catch (error) {
             console.error(error);
         };
@@ -199,7 +200,7 @@
         }
 
         function updateTVShow6(result) {
-            let sixthTitle = reslt.results[5].name;
+            let sixthTitle = result.results[5].name;
             console.log(sixthTitle);
             const sixthShowTitle = document.getElementById("sixthShowTitle");
             sixthShowTitle.innerText = sixthTitle;
